@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import SearchForm from './Components/SearchForm';
 import List from './Components/List';
-import { getStarWarsPeople, sortByName } from './services';
+import { getStarWarsPeople } from './services';
 import Paging from './Components/Paging';
+import Averages from './Components/Averages';
+
+export const sortByName = (people) => people.sort((a, b) => {
+  if(a.name < b.name) return -1;
+  if(a.name > b.name) return 1;
+  return 0;
+});
 
 function App() {
   const [ people, setPeople ] = useState([]);
@@ -41,6 +48,7 @@ function App() {
         listLength={people.length}
       />
       <List people={people} />
+      <Averages people={people}/>
     </main>
   );
 }
