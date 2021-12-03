@@ -8,6 +8,7 @@ const ListItem = ({ name, height, mass, hair_color, eye_color }) => (
       height: 300,
       width: 250,
       backgroundColor: eye_color,
+      boxShadow: '0 0 16px rgba(0, 0, 0, .25)',
     }}
   >
     <h2>{name}</h2>
