@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Paging = ({ page, listLength }) => {
+const Paging = ({ page, setPage, listLength }) => {
 
   return (
     <div>
       <button 
-        onClick={page - 1} 
+        onClick={() => setPage(--page)} 
         disabled={page <= 1}>&lt;
       </button>
       <button 
-        onClick={page + 1} 
+        onClick={() => setPage(++page)}
         disabled={listLength < 10}>&gt;
       </button>
     </div>
@@ -20,6 +20,7 @@ const Paging = ({ page, listLength }) => {
 Paging.propTypes = {
   page: PropTypes.number.isRequired,
   listLength: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
 export default Paging;

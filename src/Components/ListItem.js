@@ -8,6 +8,7 @@ const ListItem = ({ name, height, mass, hair_color, eye_color, gender }) => (
       height: 300,
       width: 250,
       backgroundColor: eye_color,
+      color: eye_color === 'black' ? 'white' : 'black',
       boxShadow: '0 0 16px rgba(0, 0, 0, .25)',
       display: 'flex',
       justifyContent: 'center',
