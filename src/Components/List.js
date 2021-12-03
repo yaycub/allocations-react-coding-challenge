@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 
 const List = ({ people }) => (
-  <ul>
+  <ul style={{
+    listStyle: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  }}>
     {people.map(person => (<ListItem key={person.url} {...person} />))}
   </ul>
 );
