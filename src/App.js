@@ -17,17 +17,18 @@ function App() {
   const [ searchTerm, setSearchTerm ] = useState('');
 
   useEffect(() => {
+    getStarWarsPeople({ page: 1, name: searchTerm })
+      .then(res => {
+        setPeople(sortByName(res.results));
+        setPage(1);
+      });
+  }, [ searchTerm ]);
+
+  const fetchByPage = (page) => {
     getStarWarsPeople({ page, name: searchTerm })
       .then(res => {
         setPeople(sortByName(res.results));
-      });
-  }, [ page ]);
-
-  const getPeopleWithName = (name) => {
-    return getStarWarsPeople({ name, page })
-      .then(res => {
-        setSearchTerm(name);
-        setPeople(sortByName(res.results));
+        setPage(page);
       });
   };
 
@@ -41,10 +42,10 @@ function App() {
         margin: 25,
       }}
     >
-      <SearchForm searchPeople={getPeopleWithName} />
+      <SearchForm searchPeople={setSearchTerm} />
       <Paging 
         page={page}
-        setPage={setPage}
+        setPage={fetchByPage}
         listLength={people.length}
       />
       <List people={people} />

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Card } from 'rebass';
 import PropTypes from 'prop-types';
 
 const ListItem = ({ name, height, mass, hair_color, eye_color, gender }) => (
-  <Card
-    sx={{
+  <div
+    style={{
       height: 300,
       width: 250,
       backgroundColor: eye_color,
@@ -23,7 +22,7 @@ const ListItem = ({ name, height, mass, hair_color, eye_color, gender }) => (
     <p>Hair Color: {hair_color}</p>
     <p>Eye Color: {eye_color}</p>
     <p>Gender: {gender}</p>
-  </Card>
+  </div>
 );
 
 ListItem.propTypes = { 
